@@ -8,17 +8,17 @@ describe("getAPIKey", () => {
   });
 
   test("missing auth scheme", () => {
-    const headers = { "authorization": "some-value" };
+    const headers = { authorization: "some-value" };
     expect(getAPIKey(headers)).toBeNull();
   });
 
   test("invalid auth scheme", () => {
-    const headers = {"authorization": "stonks 12345" };
+    const headers = { authorization: "stonks 12345" };
     expect(getAPIKey(headers)).toBeNull();
   });
 
   test("valid authorization header", () => {
-    const headers = {"authorization": "ApiKey 12345"};
+    const headers = { authorization: "ApiKey 12345" };
     expect(getAPIKey(headers)).toBe("12345");
   });
 });
